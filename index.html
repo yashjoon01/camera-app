@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="fileInput" accept="image/*" capture="environment">
+    <div class="video-wrap">
+        <video id="video" playsinline autoplay></video>
+    </div>
+    <div>
+        <button id="snap">Capture</button>
+    </div>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <div id="process-container" style="display: none;">
+        <button id="process">Process</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
