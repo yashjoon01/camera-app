@@ -9,7 +9,8 @@ const errorMsgElement = document.getElementById('span#ErrorMsg');
 const constraints = {
     audio: false,
     video: {
-        width: 640, height: 480
+        width: 640,
+        height: 480
     }
 };
 
@@ -31,15 +32,15 @@ init();
 
 var context = canvas.getContext('2d');
 
-snap.addEventListener("click", function () {
-    context.drawImage(video, 0, 0, 640, 480);
+snap.addEventListener("click", function() {
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
     video.srcObject.getTracks().forEach(track => track.stop());
     video.style.display = "none";
     snap.style.display = "none";
     processContainer.style.display = "block";
 });
 
-processBtn.addEventListener("click", function () {
+processBtn.addEventListener("click", function() {
     // Process the captured image here
     // For demonstration purposes, you can simply alert
     alert("Image processing goes here!");
@@ -52,14 +53,17 @@ fileInput.addEventListener('change', function() {
         reader.onload = function() {
             const img = new Image();
             img.onload = function() {
-                context.drawImage(img, 0, 0, 640, 480);
+                // Set canvas dimensions to match image dimensions
+                canvas.width = img.width;
+                canvas.height = img.height;
+                context.drawImage(img, 0, 0, img.width, img.height);
                 // Stop the video stream and hide the video element
                 video.srcObject.getTracks().forEach(track => track.stop());
                 video.style.display = "none";
                 // Hide the capture button
                 snap.style.display = "none";
                 // Show the process button container
-                // processContainer.style.display = "block";
+                processContainer.style.display = "block";
             };
             img.src = reader.result;
         };
