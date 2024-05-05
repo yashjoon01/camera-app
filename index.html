@@ -6,26 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-<!--     <input type="file" id="fileInput" accept="image/*" capture="environment">
+    <input type="file" id="fileInput" accept="image/*" capture="environment">
     <div class="video-wrap">
-        <video id="video" playsinline autoplay></video>
+        <video id="video" playsinline autoplay>
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <div class="mb-3"></div>
+                    <label for="file" class="form-label">File</label>
+                    <input type="file" class="form-control" id="file" name="file" /><br />
+                    <button class="btn btn-outline-dark" id="process">Process</button>
+                </div>
+            </form>
+        </video>
     </div>
     <div>
         <button id="snap">Capture</button>
     </div>
-    <canvas id="canvas" width="640" height="480"></canvas> -->
-
-
-    <div class="container my-3" id="process-container" style="display: none;">
-        <h2>Upload PDF File</h2>
-        <form action="/" method="POST" enctype="multipart/form-data">
-            <div class="mb-3"></div>
-                <label for="file" class="form-label">File</label>
-                <input type="file" class="form-control" id="file" name="file" /><br />
-                <button class="btn btn-outline-dark" id="process">Process</button>
-            </div>
-        </form>
-    </div>
+    <canvas id="canvas" width="640" height="480"></canvas>
     
     
     <script
